@@ -10,19 +10,21 @@
 template <typename T>
 T fExample1(T a, int b)
 {
-	return 1;
+	b = 1;
+	return b;
 }
 
 //Class Template
-template <class T1, T2>
+template <typename T1, typename T2>
 class CExample2
 {
 public:
-	std::vector<T1, int a> aV;
+	std::vector<T1, int> aV;
+	T2 a;
 };
 
 //Struct Template
-template <class miStruct>
+template <typename T>
 struct node
 {
 	int info;
@@ -31,8 +33,18 @@ struct node
 
 
 
-int main()
+void main()
 {
-    return 0;
+	//EJEMPLOS
+	//Function
+	fExample1<int>(7, 2);
+
+	//Clase
+	CExample2<int, int>myObject{std::vector<int, int>{5, 4}, 1};
+
+	//Struct
+	node<int> first;
+	first.info = 1;
+	first.next = nullptr;
 }
 
