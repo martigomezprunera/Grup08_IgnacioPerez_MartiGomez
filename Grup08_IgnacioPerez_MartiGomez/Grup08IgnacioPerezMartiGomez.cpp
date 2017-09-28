@@ -4,6 +4,8 @@
 #include "stdafx.h"
 #include <iostream>
 #include <vector>
+#include <queue>
+#include <string>
 
 
 //Function Template
@@ -30,6 +32,22 @@ struct node
 	node *next;
 };
 
+//SwapValues
+template<typename T>
+void swapValues(T &variable1, T &variable2)
+{
+	T temp;
+	temp = variable1;
+	variable1 = variable2;
+	variable2 = temp;
+}
+
+//SuperQueu
+template <typename T1>
+class SuperQueu
+{
+	
+};
 
 
 void main()
@@ -46,5 +64,25 @@ void main()
 	node<int> first;
 	first.info = 1;
 	first.next = nullptr;
+
+	//SwapValues
+	//INTs
+	int a = 1;
+	int b = 8;
+
+	//CHARs
+	char c = 'a'; 
+	char d = 'z';
+
+	//STRINGs
+	std::string e = "Hola";
+	std::string f = "Adios";
+
+	//FUNCTION SWAPVALUES
+	swapValues<int>(a, b);
+	swapValues<char>(c, d);
+	swapValues<std::string>(e, f);
+
+
 }
 
