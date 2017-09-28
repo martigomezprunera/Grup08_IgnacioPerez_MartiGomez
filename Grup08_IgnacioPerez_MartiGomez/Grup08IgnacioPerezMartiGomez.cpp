@@ -43,10 +43,61 @@ void swapValues(T &variable1, T &variable2)
 }
 
 //SuperQueu
-template <typename T1>
+template <typename T>
 class SuperQueu
 {
-	
+public:
+	node<T> *first;
+	node<T> *last;
+	int tam;
+
+	//CONSTRUCTORES
+	SuperQueu() :
+		last(nullptr), first(nullptr), tam(0)
+	{
+	}
+
+	SuperQueu(SuperQueu &e):
+		this->last(e.last),
+		this->first(e.first),
+		this->size(e.tam)
+	{
+	}
+
+	//METODOS
+	int size()
+	{
+		return tam;
+	}
+
+	void push(T a) 
+	{
+		node<T> *node = new node<T>;
+		node->info = a;
+		node->next = nullptr;
+		if (last != nullptr)
+		{
+			last->next = node;
+		}
+		else
+		{
+			first = node;
+		}
+
+		last = node;
+		tam++;
+	}
+
+	void pop()
+	{
+		if (tam > 0)
+		{
+			node<T> *aux = first->next;
+			delete first;
+			first = aux;
+			tam--;
+		}
+	}
 };
 
 
@@ -55,7 +106,7 @@ void main()
 	//EJEMPLOS
 	//Function
 	fExample1<int>(7);
-	fExample1<int,20>(7);
+	fExample1<int, 20>(7);
 
 	//Clase
 	CExample2<int, int>myObject;
@@ -71,7 +122,7 @@ void main()
 	int b = 8;
 
 	//CHARs
-	char c = 'a'; 
+	char c = 'a';
 	char d = 'z';
 
 	//STRINGs
@@ -83,6 +134,16 @@ void main()
 	swapValues<char>(c, d);
 	swapValues<std::string>(e, f);
 
+	//SUPERQUEU
+	std::string s = "Buenos Dias";
+	SuperQueu<std::string> *super1 = new SuperQueu<std::string>();
+	super1->push("ADIOS");
+	super1->push("Buenas TARDES");
+	super1->push("BUENAS NOCHES");
+	super1->pop();
+	
+	std::cout << super1->first->info << std::endl;
+	std::cout << super1->size() << std::endl;
 
 }
 
