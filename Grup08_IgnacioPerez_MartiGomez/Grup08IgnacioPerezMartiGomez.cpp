@@ -8,9 +8,9 @@
 
 //Function Template
 template <typename T, int b = 1>
-T fExample1(T a)
+void fExample1(T a)
 {
-	return a;
+
 }
 
 //Class Template
@@ -26,7 +26,7 @@ public:
 template <typename T>
 struct node
 {
-	int info;
+	T info;
 	node *next;
 };
 
@@ -37,6 +37,7 @@ void main()
 	//EJEMPLOS
 	//Function
 	fExample1<int>(7);
+	fExample1<int,20>(7);
 
 	//Clase
 	CExample2<int, int>myObject;
