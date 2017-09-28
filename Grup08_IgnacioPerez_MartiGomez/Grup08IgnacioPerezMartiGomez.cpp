@@ -7,11 +7,10 @@
 
 
 //Function Template
-template <typename T>
-T fExample1(T a, int b)
+template <typename T, int b = 1>
+T fExample1(T a)
 {
-	b = 1;
-	return b;
+	return a;
 }
 
 //Class Template
@@ -19,7 +18,7 @@ template <typename T1, typename T2>
 class CExample2
 {
 public:
-	std::vector<T1, int> aV;
+	std::vector<T1> aV;
 	T2 a;
 };
 
@@ -37,10 +36,10 @@ void main()
 {
 	//EJEMPLOS
 	//Function
-	fExample1<int>(7, 2);
+	fExample1<int>(7);
 
 	//Clase
-	CExample2<int, int>myObject{std::vector<int, int>{5, 4}, 1};
+	CExample2<int, int>myObject;
 
 	//Struct
 	node<int> first;
